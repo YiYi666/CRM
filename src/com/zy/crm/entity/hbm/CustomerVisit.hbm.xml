@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zy.crm.entity.CustomerVisit" table="customerVisit">
+        <id  name="visitId" column="visitId">
+            <!--生成主键策略 native 、UUID、-->
+            <generator class="native" />
+        </id>
+        <property name="visitTime"></property>
+        <property name="visitInterviewee"></property>
+        <property name="visitAddr"></property>
+        <property name="visitDetail"></property>
+        <property name="visitNextTime"></property>
+        <many-to-one name="customer" class="com.zy.crm.entity.Customer" column="visitCustId" cascade="none" fetch="join" />
+        <many-to-one name="user" class="com.zy.crm.entity.User" column="visitUserId" cascade="none" fetch="join" />
+    </class>
+</hibernate-mapping>

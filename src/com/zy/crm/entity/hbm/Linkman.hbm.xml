@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zy.crm.entity.Linkman" table="Linkman">
+        <id  name="lkmId" column="lkmId">
+            <!--生成主键策略 native 、UUID、-->
+            <generator class="native" />
+        </id>
+       <!-- <property name="custId"></property>-->
+        <property name="lkmName"></property>
+        <property name="lkmGender"></property>
+        <property name="lkmPhone"></property>
+        <property name="lkmMobile"></property>
+        <!--<one-to-one name="customer" class="com.zy.crm.entity.Customer" constrained="true" cascade="save-update"></one-to-one>-->
+        <many-to-one name="customer" class="com.zy.crm.entity.Customer" column="custId" cascade="none" fetch="join" />
+    </class>
+</hibernate-mapping>

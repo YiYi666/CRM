@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--数据库连接信息-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+         <property name="connection.username">root</property>
+         <property name="connection.password">mysql</property>
+
+        <!-- 数据库连接方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- 打印sql -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 是否格式化sql -->
+        <property name="hibernate.format_sql">true</property>
+        <!-- 此处有update、create-->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 注册实体映射地址 -->
+        <mapping resource="com/zy/crm/entity/hbm/Customer.hbm.xml"></mapping>
+        <mapping resource="com/zy/crm/entity/hbm/Linkman.hbm.xml"></mapping>
+        <mapping resource="com/zy/crm/entity/hbm/User.hbm.xml"></mapping>
+        <mapping resource="com/zy/crm/entity/hbm/Logs.hbm.xml"></mapping>
+        <mapping resource="com/zy/crm/entity/hbm/CustomerVisit.hbm.xml"></mapping>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.zy.crm.entity.Logs" table="logs">
+        <id  name="logsId" column="logsId">
+            <!--生成主键策略 native 、UUID、-->
+            <generator class="native" />
+        </id>
+        <property name="date"></property>
+        <property name="remark"></property>
+        <many-to-one name="user" class="com.zy.crm.entity.User" column="userId" cascade="none" fetch="join" />
+    </class>
+</hibernate-mapping>
